@@ -10,17 +10,20 @@ class Food{
 
     bedroom(){
 
-        background(bedroomIMG, 550, 500);
+        imageMode(CENTER);
+        image(bedroomIMG, width/2, height/2, width, height);
     }
     
     garden(){
 
-        background(gardenIMG, 550, 500);
+        imageMode(CENTER);
+        image(gardenIMG, width/2, height/2, width, height);
     }
 
     washroom(){
 
-        background(washroomIMG, 550, 500);
+        imageMode(CENTER);
+        image(washroomIMG, width/2, height/2, width, height);
     }
 
     display(){
