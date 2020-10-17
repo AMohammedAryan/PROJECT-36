@@ -93,10 +93,14 @@ function draw() {
 
     feedButton.hide();
     addFoodButton.hide();
-    Dog.remove();
+    Dog.x = 900;
+    Dog.y = 900;
   } else{
 
-    Dog.addImage("virtual pet images/ Lazy.png");
+    Dog.x = 300;
+    Dog.y = 350;
+    feedButton.show();
+    addFoodButton.show();
   }
 
   CT = hour();
@@ -113,7 +117,7 @@ function draw() {
 
     US("sleeping");
 
-  } else if(CT > lastFed + 2 && CT <= lastFed + 2.5){
+  } else if(CT > lastFed + 2 && CT <= lastFed + 4){
 
     foodObj.washroom();
 
@@ -142,7 +146,8 @@ function feedDog(){
   database.ref('/').update({
 
     Food: foodObj.foodStock,
-    feedTime: hour()
+    feedTime: hour(),
+    gameState: "hungry"
   })
 }
 
@@ -157,7 +162,7 @@ function addFood(){
 
 function US(a){
 
-  database.ref('gameState').set({
+  database.ref('/').update({
 
     gameState: a
   })
